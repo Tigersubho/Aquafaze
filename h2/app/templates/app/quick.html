@@ -1,0 +1,541 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quick Analysis</title>
+  <script src="https://unpkg.com/@tensorflow/tfjs-core"></script>
+  <script src="https://unpkg.com/@tensorflow/tfjs-converter"></script>
+  <script src="https://unpkg.com/face-api.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script>
+    var video, canvas, context;
+    function init() {
+      video = document.getElementById('video');
+      canvas = document.getElementById('canvas');
+      context = canvas.getContext('2d');
+      document.getElementById('Btn').addEventListener('click', captureImage);
+    }
+    async function startWebcam() {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        video.srcObject = stream;
+        await video.play();
+        // Run face detection when the video is playing
+        setInterval(detectFaces, 100);
+      } catch (error) {
+        console.error('Error accessing webcam:', error);
+      }
+    }
+
+    async function detectFaces() {
+      const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions());
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.drawImage(video, 0, 0, canvas.width, canvas.height);
+      detections.forEach(detection => {
+        const { x, y, width, height } = detection.box;
+        context.lineWidth = 2;
+        context.strokeStyle = 'red';
+        context.beginPath();
+        context.rect(x, y, width, height);
+        context.stroke();
+      });
+    }
+
+    function captureImage() {
+      context.drawImage(video, 0, 0, canvas.width, canvas.height);
+      var imageDataURL = canvas.toDataURL();
+
+      var formData = new FormData();
+      formData.append('image_data', imageDataURL);
+
+      fetch('/process_image', {
+        method: 'POST',
+        body: formData
+      })
+        .then(response => response.json())
+        .then(data => {
+          // Handle the response from the Django backend
+          console.log(data);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      init();
+      startWebcam();
+    });
+  </script>
+  <style>
+             @font-face {
+  font-family: 'Metropolis';
+  src: url('../fonts/Metropolis/Metropolis-Regular.woff2') format('woff2'),
+      url('../fonts/Metropolis/Metropolis-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Metropolis';
+  src: url('../fonts/Metropolis/Metropolis-Light.woff2') format('woff2'),
+      url('../fonts/Metropolis/Metropolis-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Metropolis';
+  src: url('../fonts/Metropolis/Metropolis-SemiBold.woff2') format('woff2'),
+      url('../fonts/Metropolis/Metropolis-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Metropolis';
+  src: url('../fonts/Metropolis/Metropolis-Bold.woff2') format('woff2'),
+      url('../fonts/Metropolis/Metropolis-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+/*---------------------------------------
+CUSTOM PROPERTIES ( VARIABLES )
+-----------------------------------------*/
+:root {
+--white-color:                  #ffffff;
+--primary-color:                #5bc1ac;
+--secondary-color:              #5a6f80;
+--section-bg-color:             #f0f8ff;
+--site-footer-bg-color:         #44525d;
+--custom-btn-bg-color:          #597081;
+--custom-btn-bg-hover-color:    #5bc1ac;
+--dark-color:                   #000000;
+--p-color:                      #717275;
+--border-color:                 #e9eaeb;
+
+--body-font-family:             'Metropolis', sans-serif;
+
+--h1-font-size:                 42px;
+--h2-font-size:                 40px;
+--h3-font-size:                 16px;
+--h4-font-size:                 18px;
+--h5-font-size:                 24px;
+--h6-font-size:                 22px;
+--p-font-size:                  16px;
+--btn-font-size:                18px;
+--copyright-font-size:          14px;
+
+--border-radius-large:          100px;
+--border-radius-medium:         20px;
+--border-radius-small:          10px;
+
+--font-weight-light:            300;
+--font-weight-normal:           400;
+--font-weight-semibold:         600;
+--font-weight-bold:             700;
+}
+/*---------------------------------------
+TYPOGRAPHY
+-----------------------------------------*/
+
+h2,
+h3,
+h5,
+h6 {
+color: var(--dark-color);
+}
+h1,
+h2,
+h3,
+h5,
+h6 {
+font-weight: var(--font-weight-semibold);
+letter-spacing: -1px;
+}
+h1 {
+font-size: var(--h1-font-size);
+font-weight: var(--font-weight-bold);
+letter-spacing: -2px;
+}
+h2 {
+color: var(--secondary-color);
+font-size: var(--h2-font-size);
+letter-spacing: -2px;
+}
+
+h3 {
+font-size: var(--h3-font-size);
+}
+
+h5 {
+color: var(--primary-color);
+font-size: var(--h5-font-size);
+}
+
+h6 {
+font-size: var(--h6-font-size);
+}
+
+p {
+color: var(--p-color);
+font-size: var(--p-font-size);
+font-weight: var(--font-weight-light);
+}
+
+ul li {
+color: var(--p-color);
+font-size: var(--p-font-size);
+font-weight: var(--font-weight-normal);
+}
+a {
+color: var(--p-color);
+text-decoration: none;
+}
+
+a:hover {
+color: #5bc1ac;
+}
+
+b,
+strong {
+font-weight: var(--font-weight-bold);
+}
+
+html,body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  background-color: #fff;
+  scroll-behavior: smooth;
+}
+
+ul {
+  margin-bottom: 0px;
+}
+.navbar {
+  background: var(--white-color);
+  z-index: 10;
+  padding-top: 0;
+  padding-bottom: 20px;
+}
+.navbar-brand .logo {
+  width: 60px;
+  height: 45px;
+  position:absolute;
+  left: 20px;
+  top: 10px;
+  align-items: left;
+}
+.navbar-brand {
+  color: var(--primary-color);
+  font-size: var(--h6-font-size);
+  font-weight: var(--font-weight-bold);
+}
+.navbar-brand span {
+  position:absolute;
+  display: inline-block;
+  color:#5bc1ac;
+  top: 10px;
+  left:80px;
+  font-size: 25px;
+}
+.navbar-brand span:hover{
+  color:#000;
+  transition: 1s;
+}
+.navbar-brand small {
+  color: #4d4949;
+  display: block;
+  font-size: 10px;
+  line-height: normal;
+  text-transform: uppercase;
+  margin-top: 0px;
+}
+  #capture-border {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 240px;
+    height: 300px;
+    border-radius: 55% 75% 55% 75%;
+    border: 2px dashed #5bc1ac;
+    pointer-events: none;
+  }
+  .image video{
+  border-radius: 5%;
+  box-shadow: 0 0 60px 0 #5bc1ac;
+    transition: 0.4s;
+    transform: scale(1.02);
+  }
+</style>
+     <nav class="navbar navbar-expand-lg bg-light shadow-lg">
+            <a class="navbar-brand" href="/AquaFaze">
+              <img src="/static/images/logo.png" class="logo img-fluid" alt="">
+              <span>
+                AquaFaze
+                <small>Stay Hydrated! Stay Motivated!!</small>
+            </span>
+            </a>
+    </nav>
+</head>
+<body>
+<div class="image">
+  <video id="video" width="640" height="480" autoplay></video>
+<!--  <div id="capture-border"></div>-->
+</div>
+<style>
+
+#Btn{
+display: flex;
+border:none;
+background: none;
+}
+.photo-button {
+  width: 90px;
+  height: 90px;
+  top: 85%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -50px;
+  position: absolute;
+}
+.circle {
+  position: absolute;
+  top: 12%;
+  left: 12%;
+  bottom: 12%;
+  right: 12%;
+  border-radius: 100%;
+  background-color: #ffffff;
+  opacity: 0;
+}
+.ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border-radius: 100%;
+  border: 0.5em solid #ffffff;
+  opacity: 0.8;
+}
+.photo-button .circle, .photo-button .ring {
+  transition: all 0.25s;
+}
+.photo-button:hover .circle {
+  opacity: 1;
+}
+.photo-button:active .ring {
+  opacity: 1;
+}
+.photo-button:active .circle {
+  opacity: 0.5;
+}
+.image{
+position: absolute;
+left: 27%;
+top:15%;
+}
+#button {
+    position:absolute;
+    top: 80%;
+    left: 42%;
+    display: flex;
+     padding: 12px 10px;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    border-radius: 30px;
+    color: #2f2a2a;
+    outline: none;
+    background-color: #5bc1ac;
+    border: 1px solid #5bc1ac;
+    box-shadow: inset 0 0 0 0 #ffffff;
+    transition: .3s;
+    margin: auto;
+    display: block;
+    outline: none;
+    cursor: pointer;
+}
+#button:hover {
+        color: #5bc1ac;
+        box-shadow: inset 180px 0 0 0 #ffffff;
+
+}
+#button1 {
+    position:absolute;
+    top: 90%;
+    left: 42.5%;
+    display: flex;
+     padding: 12px 10px;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    border-radius: 30px;
+    color: #2f2a2a;
+    outline: none;
+    background-color: #5bc1ac;
+    border: 1px solid #5bc1ac;
+    box-shadow: inset 0 0 0 0 #ffffff;
+    transition: .3s;
+    margin: auto;
+    display: block;
+    outline: none;
+    cursor: pointer;
+}
+#button1:hover {
+        color: #5bc1ac;
+        box-shadow: inset 150px 0 0 0 #ffffff;
+
+}
+</style>
+<div class="image">
+  <canvas id="canvas" width="640" height="480"></canvas>
+  <button type="Submit" id="Btn">
+    <div class="photo-button">
+  <div class="circle"></div>
+  <div class="ring"></div>
+</div> </button>
+</div>
+<form method="post" action="/show_result">
+    {% csrf_token %}
+  <button type="btn" id="button" name="button" >Confirm your click</button>
+
+</form>
+  <button type="btn" id="button1" name="button1" data-toggle="modal" data-target="#myModal">Show Hydration</button>
+
+
+                  <div class="modal" id="myModal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h3 class="modal-title">AquaFaze</h3>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+            <div class="side-image">
+            <img src="/static/images/modal 2.png">
+                </div>
+            <div class="motto">
+            <em style="font-size: 16px;">"Quench your body's thirst for life and vitality with the power of hydration!"</em>
+            </div>
+            </div>
+        <div class="side-image2">
+            <img src="/static/images/modal 2.png">
+                </div>
+          <div class="output">
+           <span style="font-size: 16px;"> You have to intake <h1><b>{{ souvik }}</b> ltrs</h1></span>
+        </div>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+          </form>
+      </div>
+    </div>
+  </div>
+      <script>
+          $('#myModal').on('modalclosed', function() {
+          $('#myModal').trigger("reset");
+      </script>
+<style>
+    .overlay {
+        position: absolute;
+        top: 25%;
+        left: 40%;
+        width: 250px;
+        height: 250px;
+        --border-style: 2px dashed #5bc1ac;
+        --border-space: 20px;
+    }
+
+    .overlay-element {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+    }
+
+    .overlay .top-left {
+        border-left: var(--border-style);
+        border-top: var(--border-style);
+        top: var(--border-space);
+        left: var(--border-space);
+    }
+
+    .overlay .top-right {
+        border-right: var(--border-style);
+        border-top: var(--border-style);
+        top: var(--border-space);
+        right: var(--border-space);
+    }
+
+    .overlay .bottom-left {
+       left: 15px;
+        border-left: var(--border-style);
+        border-bottom: var(--border-style);
+        bottom: var(--border-space);
+    }
+
+    .overlay .bottom-right {
+        border-right: var(--border-style);
+        border-bottom: var(--border-style);
+        bottom: var(--border-space);
+        right: var(--border-space);
+    }
+    .side-image img{
+height: 130px;
+width: auto;
+}
+.side-image2 img{
+float: right;
+ -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+height: 130px;
+width: auto;
+}
+.modal-title h3{
+position:absolute;
+left:23%;
+padding: 2px;
+color:#5bc1ac;
+font-size: 20px;
+font-weight: bold;
+}
+.output{
+margin-top: -15%;
+margin-left:35%;
+}
+
+</style>
+
+<div id="content">
+    <div class="overlay">
+        <div class="overlay-element top-left"></div>
+        <div class="overlay-element top-right"></div>
+        <div class="overlay-element bottom-left"></div>
+        <div class="overlay-element bottom-right"></div>
+    </div>
+</div>
+</body>
+<h1> {{ context}} </h1>
+</html>
+          

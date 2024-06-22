@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   <title>Login</title>
+   <link rel="icon" href="/static/images/logo.png" type="image/icon type">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <title>Login</title>
+    <link rel="stylesheet" href="/static/login.css" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg bg-light shadow-lg">
+      <div class="container">
+          <a class="navbar-brand" href="/AquaFaze">
+            <img src="/static/images/logo.png" class="logo img-fluid" alt="">
+            <span>
+              AquaFaze
+              <small>Stay Hydrated! Stay Motivated!!</small>
+          </span>
+          </a>
+      </div>
+    </nav>
+  <div class="img">
+    <div id="monkey"></div>
+  </div>
+    <div class="login-box">
+      <span class="material-symbols-outlined">
+        <a href="/AquaFaze">
+        close
+        </a></span>
+    <h1> Login </h1>
+      <form action="/login" form method="POST">
+{% csrf_token %}
+        <label>User Name</label>
+        <input type="text" name = "username" placeholder="" required />
+        <label>Password</label>
+        <input type="password" id="password" name="password" oninput="handlePasswordInput()" placeholder="" required/>
+        <button type="btn" id="btn">Login</button>
+      <closeform></closeform></form>
+<p class="para-2">
+      Doesn't have an account? <a href="/signup">Sign-up Here</a>
+    </p>
+    </div>
+
+  <style>
+#monkey {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  top: 230px;
+  left:380px;
+  background-image: url("/static/images/monkey1.png");
+  background-size: cover;
+  transition: background-image 0.3s ease-in-out;
+}
+
+.close-eyes#monkey {
+  background-image: url("/static/images/monkey2.png");
+}
+</style>
+<script>
+function handlePasswordInput() {
+  const passwordInput = document.getElementById('password');
+  const monkeyElement = document.getElementById('monkey');
+
+  if (passwordInput.value.length > 0) {
+    monkeyElement.classList.add('close-eyes');
+  } else {
+    monkeyElement.classList.remove('close-eyes');
+  }
+}
+</script>
+
+  </body>
+</html>
+

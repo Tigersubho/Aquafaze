@@ -1,0 +1,337 @@
+@font-face {
+  font-family: 'Metropolis';
+  src: url('../fonts/Metropolis/Metropolis-Regular.woff2') format('woff2'),
+      url('../fonts/Metropolis/Metropolis-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Metropolis';
+  src: url('../fonts/Metropolis/Metropolis-Light.woff2') format('woff2'),
+      url('../fonts/Metropolis/Metropolis-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Metropolis';
+  src: url('../fonts/Metropolis/Metropolis-SemiBold.woff2') format('woff2'),
+      url('../fonts/Metropolis/Metropolis-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Metropolis';
+  src: url('../fonts/Metropolis/Metropolis-Bold.woff2') format('woff2'),
+      url('../fonts/Metropolis/Metropolis-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+/*---------------------------------------
+CUSTOM PROPERTIES ( VARIABLES )             
+-----------------------------------------*/
+:root {
+--white-color:                  #ffffff;
+--primary-color:                #66c2ab;
+--secondary-color:              #5a6f80;
+--section-bg-color:             #f0f8ff;
+--site-footer-bg-color:         #44525d;
+--custom-btn-bg-color:          #597081;
+--custom-btn-bg-hover-color:    #5bc1ac;
+--dark-color:                   #000000;
+--p-color:                      #717275;
+--border-color:                 #e9eaeb;
+
+--body-font-family:             'Metropolis', sans-serif;
+
+--h1-font-size:                 52px;
+--h2-font-size:                 46px;
+--h3-font-size:                 32px;
+--h4-font-size:                 28px;
+--h5-font-size:                 24px;
+--h6-font-size:                 22px;
+--p-font-size:                  16px;
+--btn-font-size:                18px;
+--copyright-font-size:          14px;
+
+--border-radius-large:          100px;
+--border-radius-medium:         20px;
+--border-radius-small:          10px;
+
+--font-weight-light:            300;
+--font-weight-normal:           400;
+--font-weight-semibold:         600;
+--font-weight-bold:             700;
+}
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--dark-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -1px;
+}
+
+h1 {
+  font-size: var(--h1-font-size);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -2px;
+}
+
+h2 {
+  color: var(--secondary-color);
+  font-size: var(--h2-font-size);
+  letter-spacing: -2px;
+}
+
+h3 {
+  font-size: var(--h3-font-size);
+}
+
+h4 {
+  font-size: var(--h4-font-size);
+}
+
+h5 {
+  color: var(--primary-color);
+  font-size: var(--h5-font-size);
+}
+
+h6 {
+  font-size: var(--h6-font-size);
+}
+
+p {
+  color: var(--p-color);
+  font-size: var(--p-font-size);
+  font-weight: var(--font-weight-light);
+}
+
+ul li {
+  color: var(--p-color);
+  font-size: var(--p-font-size);
+  font-weight: var(--font-weight-normal);
+}
+
+a, 
+button {
+  touch-action: manipulation;
+  transition: all 0.3s;
+}
+
+a {
+  color: var(--p-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--primary-color);
+}
+
+b,
+strong {
+  font-weight: var(--font-weight-bold);
+}
+body {
+  background-color: var(--white-color);
+  font-family: var(--body-font-family); 
+}
+.navbar {
+  background: var(--white-color);
+  z-index: 10;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.navbar {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.navbar-brand .logo {
+  width: 60px;
+  height: 45px;
+  position:absolute;
+  left: 20px;
+  top: 10px;
+  align-items: left;
+}
+.navbar-brand {
+  color: var(--primary-color);
+  font-size: var(--h6-font-size);
+  font-weight: var(--font-weight-bold);
+}
+.navbar-brand span {
+  position:absolute;
+  display: inline-block;
+  top: 15px; 
+  left: 80px ;
+  font-size: 25px;
+}
+.navbar-brand span:hover{
+  color:#000;
+  transition: 1s;
+}
+.navbar-brand small {
+  color: #4d4949;
+  display: block;
+  font-size: 10px;
+  line-height: normal;
+  text-transform: uppercase;
+  margin-top: 5px;
+}
+
+.img img{
+  width:300px;
+  height:auto;
+  position: absolute;
+  top: 250px;
+  left:380px;
+}
+.login-box {
+  position: absolute;
+  top: 200px;
+  width: 300px;
+  height: 242px;
+  right: 400px;
+  border-radius: 10px;
+  border: 1px solid#c4e7ec;
+  background-color: #fff;
+  transform: (-50%,-50%);
+  padding: 50px 30px;
+}
+.login-box span{
+  position: relative;
+  top: -30px;
+  float: right;
+  left: 169px;
+}
+.login-box span a{
+  text-decoration: none;
+}
+label{
+  margin-left: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+h1 {
+  color : rgba(84, 187, 171);
+  margin-top: -30px;
+  margin-left: 0px;
+  margin-bottom: 30px;
+  font-size: 25px;
+}
+form {
+  width: 300px;
+  margin-left: -14px;
+}
+form input {
+  width: 100%;
+  padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  border: 1px solid #a8dce9;
+  border-radius: 5px;
+  outline: none;
+  background-color: #fff;
+}
+#btn{
+  				position: relative;
+				left: 10px;
+				font-family: inherit;
+				margin-top: 5px;
+        margin-bottom: 5px;
+				border: none;
+				color: #000;
+  background-color: #1be0cd;
+				width: 313px;
+				padding: 10px;
+				border-radius: 7px;
+				outline: none;
+				cursor: pointer;
+}
+#btn1{
+position: relative;
+left: 10px;
+font-family: inherit;
+margin-top: 5px;
+margin-bottom: 5px;
+border: none;
+color: #000;
+background-image: linear-gradient(120deg,#ffffff, #ffa366);
+width: 120px;
+padding: 7px;
+border-radius: 10px;
+outline: none;
+cursor: pointer;
+}
+#btn2{
+position: relative;
+left: 80px;
+font-family: inherit;
+margin-top: 5px;
+margin-bottom: 5px;
+border: none;
+color: #000;
+background-image: linear-gradient(120deg,#ffffff, #ffa366);
+width: 120px;
+padding: 7px;
+border-radius: 10px;
+outline: none;
+cursor: pointer;
+}
+p {
+  text-align: center;
+  margin-top: -38px;
+  margin-left: 35px;
+  margin-bottom: 0px;
+  font-size: 15px;
+  color: #ccffff;
+}
+#cbx{
+   position: relative;
+   left : -135px;
+   top: 28px;
+   }
+.para-2 {
+  text-align: center;
+  color: #151212;
+  font-size: 13px;
+  margin-top: 5px;
+  margin-left: -9px;
+}
+.para-2 a {
+  color: rgba(84, 187, 171);;
+  text-decoration: underline;
+}
+.userInput {
+  display: flex;
+  justify-content: center;
+}
+
+input {
+  margin: 10px;
+  height: 35px;
+  width: 70px;
+  border: #b5dee5;
+  border-radius: 0px;
+  text-align: center;
+  font-family: arimo;
+  font-size: 1.0rem;
+  background: #eef2f3;
+}

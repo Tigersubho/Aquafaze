@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   <title>Sign Up</title>
+   <link rel="icon" href="/static/images/logo.png" type="image/icon type">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/static/signup.css" />
+  </head>
+  <body>
+    <main>
+      <div class="preloader"></div>
+    <nav class="navbar navbar-expand-lg bg-light shadow-lg">
+      <div class="container">
+          <a class="navbar-brand" href="/AquaFaze">
+            <img src="/static/images/logo.png" class="logo img-fluid" alt="">
+            <span>
+              AquaFaze
+              <small>Stay Hydrated! Stay Motivated!!</small>
+          </span>
+          </a>
+      </div>
+    </nav>
+    <div class="image">
+      <img src="/static/images/signup.png">
+    </div>
+    <div class="signup-box">
+      <span class="material-symbols-outlined">
+        <a href="/AquaFaze">
+        close
+        </a></span>
+      <h1>Sign Up</h1>
+      <form action="/signup" method="POST" id="signinForm">
+      {% csrf_token %}
+        <label>User Name</label>
+        <input type="text" name="username" placeholder="" required/>
+        <label>First Name</label>
+        <input type="text" name="firstname" placeholder="" required/>
+        <label>Last Name</label>
+        <input type="text" name="lastname" placeholder="" required/>
+        <label>Email</label>
+        <input type="email" name="email" placeholder="" required/>
+        <label>Password</label>
+        <input type="password" name="password" pattern="^(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$" id="password" placeholder=""required/>
+         <p class="message"> 8 characters, one lowercase letter, uppercase letter, one number, and one special character. </p>
+          <label>Confirm Password</label>
+        <input type="password" name="cpassword" id="cpassword"  placeholder="" required/>
+	  <p>
+       <input type="checkbox" id="cbx" name="cbx"> you agree to our Terms and Condition and Policy Privacy
+        </p>
+        <button type="submit" id="btn">Submit</button>
+      <closeform></closeform></form>
+
+   <p class="para-2">
+      Already have an account? <a href="/login">Login here</a>
+    </p>
+      </div>
+      <script>
+document.getElementById("signinForm").addEventListener("submit", function(event) {
+  var cbx = document.getElementById("cbx");
+
+  if (!cbx.checked) {
+    event.preventDefault(); // Prevent form submission
+    alert("Please tick the validation checkbox.");
+  }
+});
+      </script>
+
+    <script>
+        const form = document.getElementById('signinForm');
+        const passwordInput = document.getElementById('password');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault(); // Prevent form submission
+
+            const password = passwordInput.value;
+
+            // Define password requirements using regex
+            const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+            if (!regex.test(password)) {
+                alert('Password must contain at least 8 characters, including one lowercase letter, one uppercase letter, one number, and one special character.');
+                return;
+            }
+
+            // Password meets the requirements, proceed with sign up process
+            // You can submit the form or perform any other actions here
+            alert('Sign up successful!');
+        });
+    </script>
+
+</body>
+</html>
+
+  </body>
+</main>
+</html>

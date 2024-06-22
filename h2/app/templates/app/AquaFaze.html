@@ -1,0 +1,465 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   <title>AquaFaze</title>
+   <link rel="icon" href="/static/images/logo.png" type="image/icon type">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+        <link rel="stylesheet" href="/static/bootstrap-icons.css" type="text/css">
+        <link rel="stylesheet" href="/static/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="/static/style.css"  type="text/css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" type="text/css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+  </head>
+<body>
+  <body id="section_1">
+    <header class="site-header">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-8 col-12 d-flex flex-wrap">
+                    <p class="d-flex me-4 mb-0">
+                        Adelaide ,South Australia
+                    </p>
+                    <p class="d-flex mb-0">
+                        <a href="https://comicwclub.blogspot.com/">
+                            AquaFaze.com
+                        </a>
+                    </p>
+                </div>
+    </header>
+<nav class="navbar navbar-expand-lg bg-light shadow-lg">
+  <div class="container">
+      <a class="navbar-brand" href="/AquaFaze">
+        <img src="/static/images/logo.png" class="logo img-fluid" alt="">
+        <span>
+          AquaFaze
+          <small>Stay Hydrated! Stay Motivated!!</small>
+      </span>
+      </a>
+      <button class="navbar-toggler" type="button"data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                  <a class="nav-link click-scroll" href="#top">Home</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link click-scroll" href="#section_2"> Features</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link click-scroll" href="#section_3">Articles</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link click-scroll" href="#section_4">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link click-scroll" href="#section_5">Contact Us</a>
+            </li>
+            {% if user.is_authenticated %}
+            {% else %}
+              <li class="nav-item">
+                  <a class="nav-link click-scroll" href="/login">Login</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link click-scroll" href="/signup">Signup</a>
+              </li>
+              {% endif %}
+           <li class="nav-item">
+              <a class="nav-link1 click-scroll" style="position:absolute;right: 5%;"href="/my_account">
+                  <i class='fas fa-user-circle' style='font-size:36px;color:#5bc1ac'></i>
+              </a>
+          </li>
+       </form>
+          </ul>
+      </div>
+  </div>
+</nav>
+        <div class="svg1">
+          <img src="/static/images/svg.png">
+        </div>
+  <div class="container">
+      <div class="row">
+        <div class="head">
+          <div class="col-lg-10 col-12 text-center mx-auto">
+              <h2 class="mb-5"><b><span style="color: #1ad9b6;">Welcome to </span>AquaFaze</b></h2>
+              <h3><b>Remember, Always Stay</b> <div class="animated-info"><b><span class="animated-item">Hydrated!</span> <span class="animated-item">Motivated!</span> <span class="animated-item">Augmented!</span></b></div></h3>
+              </div>
+              <div class="svg">
+              <img src="/static/images/svg1.png">
+            </div>
+          </div>     
+ <div class="preloader"></div>
+          <section class="">
+            <div id="section_2"></div>
+          <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
+              <div class="featured-block d-flex justify-content-center align-items-center">
+                  <a href="/quick" class="d-block">
+                      <img src="/static/images/quick.png" class="featured-block-image img-fluid" alt="">
+                      <p class="featured-block-text"><strong>Quick </strong> Analysis</p>
+                  </a>
+              </div>
+            </div>
+          <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0 mb-md-4">
+              <div class="featured-block d-flex justify-content-center align-items-center">
+                  <a href="/detailed" class="d-block">
+                      <img src="/static/images/detailed.png" class="featured-block-image img-fluid" alt="">
+                      <p class="featured-block-text"><strong>Detailed</strong> Analysis</p>
+                  </a>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0 mb-md-4">
+              <div class="featured-block d-flex justify-content-center align-items-center">
+                  <a href="/activito" class="d-block">
+                      <img src="/static/images/activito.webp" class="featured-block-image img-fluid" alt="">
+
+                      <p class="featured-block-text"> <strong> Activito</strong> Tool</p>
+                  </a>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
+              <div class="featured-block d-flex justify-content-center align-items-center">
+                  <a href="/buisness" class="d-block">
+                      <img src="/static/images/merge2.jpg" class="featured-block-image1 img-fluid" alt="">
+                      <p class="featured-block-text"><strong>Buisness</strong> Space</p>
+                  </a>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<section class="">
+  <div id="section_3"></div>
+  <div class="image-slider">
+    <div class="image-slider-track">
+        <div class="slide">
+            <a href="">
+            <img src="/static/images/img1.jpg"></a>
+        </div>
+        <div class="slide">
+            <img src="/static/images/img2.jpg">
+        </div>
+        <div class="slide">
+            <img src="/static/images/img3.webp">
+        </div>
+        <div class="slide">
+            <img src="/static/images/img4.webp">
+        </div>
+        <div class="slide">
+            <img src="/static/images/loginbg.jpg">
+        </div>
+        <div class="slide">
+            <img src="/static/images/activito.webp">
+        </div>
+    </div><a href="/blogs"   >
+        <button type="button" id="blogs">Read More</button></a>
+</section>
+  <section class="Aboutus" id="section_4">
+    <div id="#section_2" class="about-us section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 align-self-center">
+            <div class="left-image">
+              <img src="/static/images/group.jpg" alt="Our Team">
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="section-heading">
+              <h2><b>HEY!</b> <em>Meet</em> Our <span><b>Team</b></span></h2>
+              <style> em{
+                color:rgb(59, 182, 235)
+              }</style>
+              <p>A small dream, some curious learners, a little bit planning here and there, guidance from friends, inspiration from foes, lots of coding, lots of experimenting and BOOM! we have got ourselves our very own 'Dream Come True' Start-up</p>
+              <div class="row">
+                <div class="col-lg-4">
+                  <div class="fact-item">
+                    <div class="count-area-content">
+                      <div class="icon">
+                        <a href="/aboutus"><img src="/static/images/SOUVIK GHOSH.jpg" alt=""></a>
+                      </div>
+                      <div class="count-title"><a href="/aboutus">Souvik <br>Ghosh</a></div>
+                      <p>Backend Developer</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="fact-item">
+                    <div class="count-area-content">
+                      <div class="icon">
+                        <a href="/aboutus"> <img src="/static/images/SUBHODEEP.jpg" alt=""></a>
+                      </div>
+                      <div class="count-title"><a href="/aboutus">Subhodeep Ghosh </a></div>
+                      <p>Backend Developer(ML)</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="fact-item">
+                    <div class="count-area-content">
+                      <div class="icon">
+                      <a href=  "/aboutus"> <img src="/static/images/AKASH RANJAN MANDAL.jpg" alt=""></a> 
+                      </div>
+                      <div class="count-title"><a href="/aboutus">Akash Ranjan Mandal</a></div>
+                      <p>Frontend Developer</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="fact-item">
+                    <div class="count-area-content">
+                      <div class="icon">
+                       <a href= "/aboutus"><img src="/static/images/poulami.jpg" alt=""></a>
+                      </div>
+                      <div class="count-title"><a href= "/aboutus">Poulami <br>Kayal</a></div>
+                      <p>Database Manager</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="fact-item">
+                    <div class="count-area-content">
+                      <div class="icon">
+                       <a href="/aboutus" ><img src="/static/images/ushamaam.jpg" alt=""></a>
+                      </div>
+                      <div class="count-title"><a href="/aboutus" >Usha Rani Gogoi</a></div>
+                      <p>Project Guide</p>
+                    </div>
+                  </div>
+                  <a href="/aboutus" class="btn1">More</a>
+                  </div>  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="contact-section section-padding" id="section_5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-12 ms-auto mb-5 mb-lg-0">
+                <div class="contact-info-wrap">
+                    <h2>Get in touch<style>.contact-info-wrap h2{letter-spacing: 1px; font-weight: bolder; color: #5a6f80;}
+                      </style></h2>
+                    <div class="contact-image-wrap d-flex flex-wrap">
+                        <img src="/static/images/SUBHODEEP.jpg" class="img-fluid avatar-image" alt="">
+                        <div class="d-flex flex-column justify-content-center ms-3">
+                            <p class="mb-0"><span>Subhodeep Ghosh</span></p><style>.contact-image-wrap p{letter-spacing: 0.5px;font-size: large;}</style>
+                            <p class="mb-0"><strong>Founder</strong></p>
+                        </div>
+                    </div>
+                    <div class="contact-info">
+                        <h5 class="mb-3"><span>Contact Infomation</span></h5><style>.contact-info h5{letter-spacing: 0.5px;}</style>
+
+                        <p class="d-flex mb-2">
+                            Adelaide, South Australia
+                        </p>
+                        <p class="d-flex mb-2">
+                            <a href="tel: 7319292532">
+                                7319292532
+                            </a>
+                        </p>
+                        <p class="d-flex">
+                            <a href="mailto:info@yourgmail.com">
+                              aquafaze@gmail.com
+                            </a>
+                        </p>
+
+                        <button id ="directions" class="custom-btn btn mt-3">Get Direction</button>
+                    </div>
+                </div>
+            </div>
+        <script>
+        $(document).ready(function () {
+            $('#directions').click(function () {
+                window.open('/map/', 'Map', 'height=600,width=800');
+            });
+        });
+    </script>
+            <div class="col-lg-5 col-12 mx-auto">
+                <form class="custom-form contact-form" action="/feedback" method="post" role="form">
+                    <h2>Feedback form </h2><style>.custom-form h2{letter-spacing: 0.8px; font-weight: bolder; color: #5a6f80;}</style>
+
+                    <p class="mb-4">Or, you can just send an email:
+                        <a href="mailto:akashranjanmandal@gmail.com">aquafaze@gmail.com</a>
+                    </p>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <input type="text" name="first-name" id="first-name" class="form-control" placeholder="Souvik" required>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <input type="text" name="last-name" id="last-name" class="form-control" placeholder="Ghosh" required>
+                        </div>
+                    </div>
+                    <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="souvikghosh@gmail.com">
+
+                    <textarea name="message" rows="5" class="form-control" id="message" placeholder="What can we help you with?"></textarea>
+
+                    <button type="submit" class="form-control">Send Message</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<script type="application/javascript">
+  window.tiledeskSettings =
+   {
+        projectid: "63d9661b9af61500193c07bc"
+   };
+   (function(d, s, id) {
+        var w=window; var d=document; var i=function() { i.c(arguments); };
+        i.q=[]; i.c=function(args){ i.q.push(args); }; w.Tiledesk=i;
+        var js, fjs=d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js=d.createElement(s); js.id=id; js.async=true;
+        js.src="https://widget.tiledesk.com/v5/launch.js";
+        fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'tiledesk-jssdk'));
+</script>
+
+
+</main>
+<footer class="text-center text-lg-start text-muted">
+  <!-- Section: Social media -->
+  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+    <!-- Left -->
+    <div class="me-5 d-none d-lg-block">
+    <a href="/AquaFaze"><span style="color: #5bc1ac;">STAY HYDRATED ! STAY </span></a> <a href="https://comicwclub.blogspot.com/"><span style="color:#5bc1ac;">MOTIVATED !!</span></a>
+    </div>
+    <!-- Left -->
+    <!-- Right -->
+    <div>
+      <a href="/error404" class="me-4 link-secondary">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="/error404" class="me-4 link-secondary">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="/error404" class="me-4 link-secondary">
+        <i class="fab fa-google"></i>
+      </a>
+      <a href="https://instagram.com/AquaFaze.js?igshid=MDM4ZDc5MmU=" class="me-4 link-secondary">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="/error404" class="me-4 link-secondary">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="/error404" class="me-4 link-secondary">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <!-- Right -->
+  </section>
+  <!-- Section: Social media -->
+  <!-- Section: Links  -->
+  <section class="footer">
+    <div class="container text-center text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            <i class="fas fa-gem me-3 text-secondary"></i>AquaFaze
+          </h6>
+          <p>
+            <p><b>AquaFaze</b> is a project run by <b>ARDENTS</b>.<br>
+          </p>
+          <p>AquaFaze is for informational purposes only.It does not provide medical advice, diagnosis, or treatment. See additional info >></p>
+            <style>
+            p{
+              line-height:1.5;
+            }
+            </style>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Updates
+          </h6>
+          <p>
+            <a href="/error404" class="text-reset">Dedicated App</a>
+          </p>
+          <p>
+            <a href="/error404" class="text-reset">IOT device</a>
+          </p>
+          <p>
+            <a href="/error404" class="text-reset">Latest Blogs</a>
+          </p>
+          <p>
+            <a href="/error404" class="text-reset">Machine Learning</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Highlighs
+          </h6>
+          <p>
+            <a href="/error404" class="text-reset">Activito!</a>
+          </p>
+          <p>
+            <a href="/error404" class="text-reset">ChatBot</a>
+          </p>
+          <p>
+            <a href="/quick" class="text-reset">Quick Analysis</a>
+          </p>
+          <p>
+            <a href="/error404" class="text-reset">Detailed Analysis</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+          <p><i class="fas fa-home me-3 text-secondary"></i> Adelaide, Australia</p>
+          <p>
+            <i class="fas fa-envelope me-3 text-secondary"></i>
+            aquafaze@gmail.com
+          </p>
+          <p><i class="fas fa-phone me-3 text-secondary"></i> +91 8420894696</p>
+          <p><i class="fab fa-discord me-3 text-secondary"></i>AquaFaze</p>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+  <!-- Copyright -->
+  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+    ⓒ 2023 - now
+    AquaFaze. All rights reserved, Built with <span style="color:#5bc1ac;">  &#10084; </span>
+  in INDIA
+  </div>
+</footer>
+      <!--Scroll to top-->
+    
+  <!-- JAVASCRIPT FILES -->
+  <script src="/static/jquery.min.js"></script>
+  <script src="/static/bootstrap.min.js"></script>
+  <script src="/static/jquery.sticky.js"></script>
+  <script src="/static/click-scroll.js"></script>
+  <script src="/static/counter.js"></script>
+  <script src="/static/custom.js"></script>
+  <script src="/static/preloader.js"></script>
+
+  <!-- JAVASCRIPT FILES -->
+  
+</body>  <!-- Footer -->
+</html>
